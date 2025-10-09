@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: .
+
+
+website:
+  title: "My Quarto Website"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: proposal.qmd
+        text: Proposal
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+

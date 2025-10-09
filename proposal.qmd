@@ -1,0 +1,115 @@
+---
+title: "Proposal"
+author: "Data Visualization Team"
+format: html
+---
+
+## Data Production and Analysis Planning
+
+### Data Source
+The source is the [Cyber Operations Tracker by Council on Foreign Relations](https://www.cfr.org/cyber-operations/). This comprehensive database documents publicly acknowledged state-sponsored cyber incidents since 2005, cataloging over 500 cyber operations attributed to 34 countries. The data is compiled from open-source intelligence, such as government reports and media coverage.
+
+### Data Motivation
+
+The current data visualization is demonstrated in a simple 2D map format, which limits the ability to convey the complex, multi-dimensional nature of global cyber operations. We are proposing to develop a 3D globe visualization to:
+
+- Enhance spatial understanding of cyber attack patterns and geographic relationships
+- Provide intuitive interaction through rotation, zooming, and filtering capabilities
+- Display temporal evolution of cyber incidents through animated timelines
+- Improve user engagement with immersive visual storytelling
+
+Beyond the visualization limitations, another critical issue with the original dataset is the ambiguity in its classification system for threat actors and victims. The current coding scheme relies heavily on agency-level attributions and organizational descriptors that often obscure the true nature of the actors involved. For instance, attacks may be attributed to specific intelligence agencies or military units rather than clearly identifying the sponsoring country, while victims are frequently categorized by sector or organization type without clear geographic or jurisdictional mapping. This lack of clarity makes it challenging to analyze patterns of state behavior, understand escalation dynamics, or identify targeting preferences. 
+
+To address this limitation, we will implement a more robust classification framework that:
+
+- Develops standardized victim categorization across geographic, sectoral, and criticality dimensions
+- Implements a multi-label system to capture complex agency levels and their relationships
+
+This enhanced classification system will not only improve analytical accuracy but also enable more sophisticated visualizations.
+
+### Data Production Planning
+
+The data production process will involve the following steps:
+
+1. **Data Cleaning and Standardization**
+   - Normalize country names and codes to ISO 3166-1 alpha-3 standards
+   - Standardize date formats and handle missing temporal data
+ 
+2. **Data Structure Design**
+   - Restructure the data into proper format for temporal visualization and analysis
+   - Convert the data into a format compatible with ArcGIS web applications
+   - Design relational schema to store the various levels of data into a database
+
+3. **Data Enrichment**
+   - Concatenate with additional data
+        - Other relational data such as alliances and conflicts
+        - Other unit attribute level data such as technology capacity, etc.
+   - Convert the cyber incidents into network object data for relational and geographic visualization
+   - Use LLMs to extract information from the original source to create source level annotation
+
+4. **Data Visualization Design**
+   - Create ArcGIS app to visualize the data in 3D globe
+   - Create a web app to integrate the geospatial visualization with other levels of data retrieval for user interaction
+
+
+### Data Visualization Planning
+
+**System Architecture:**
+
+```{mermaid}
+%%{init: {'theme':'neutral', 'themeVariables': { 'primaryColor':'#fff','primaryTextColor':'#000','primaryBorderColor':'#000','lineColor':'#000','secondaryColor':'#fff','tertiaryColor':'#fff'}}}%%
+flowchart TD
+    subgraph Backend
+        T1[cyber_operations]
+        T2[country_attributes]
+        T3[alliance_network]
+        T4[conflict_network]
+        DB[(Database)]
+        
+        T1 --> DB
+        T2 --> DB
+        T3 --> DB
+        T4 --> DB
+    end
+    
+    subgraph UI[User Interface]
+        WEB[Web Application]
+        ARC[ArcGIS App with Temporal Adjustment]
+        NET[Network Graphs]
+        MOD[Model Results Displays]
+        
+        WEB --> ARC
+        WEB --> NET
+        WEB --> MOD
+    end
+    
+    DB --> WEB
+    WEB --query--> DB
+    ARC --query--> DB
+    
+    style Backend fill:none,stroke:#000
+    style UI fill:#fff,stroke:#000
+```
+
+**Visualization Components:**
+
+1. **3D Globe (ArcGIS Web Scene)**: Interactive globe showing cyber operations with animated attack arcs between nations. Countries colored by incident frequency with height extrusion for attack intensity.
+
+2. **Temporal Slider**: Timeline control to filter and animate cyber incidents across time periods. Playback functionality to observe attack pattern evolution.
+
+3. **Country Attributes Panel**: Click on nations to display: cyber capabilities proxy, alliance memberships, conflict relationships, historical incident counts etc.
+
+4. **Social Network Graph**: Directed graph where nodes represent nations (sized by cyber capability, color and shape indicating other attributes) and edges show cyber operations (thickness indicating frequency).
+
+5. **Model Results Displays**:
+   - **Spatial Interaction Model**: Flow map with chord diagram showing bilateral cyber attacks flows, highlighting geospatial proximity effects with thicker arcs
+   - **STOAT Outputs**: Temporal multiplex network with time steps as layers, shown in two panels for international relations networks (alliances and conflicts) and cyber incident networks
+### Data Analysis Planning
+
+We intend to leverage the geospatial and temporal network analysis to extract meaningful insights from the data.
+
+**Geospatial Analysis:**
+1. Implement a Spatial Interaction Model based on gravity theory to analyze cyber operations between countries ([PySAL spint](https://github.com/pysal/spint)). This model uses the following predictors to estimate cyber incident outcomes: the cyber capabilities of both the sponsoring and victim countries, the alliance and conflict relationships between them, and whether they share a land border. The model will leverage geospatial information to test whether border contiguity increases cyber operations when countries are in conflict, capturing how regional tensions and conflicts are coordinated in cyberspace, such as the cyber operations between Ukraine and Russia representing a modern "hybrid warfare" in both cyberspace and physical space.
+
+**Temporal Network Inference:**
+2. Implement STOAT (Spatial-Temporal Probabilistic Causal Inference Network) for cyber operations ([arXiv:2506.09544](https://arxiv.org/abs/2506.09544)). This method performs causal inference by incorporating a spatial relation matrix that encodes interregional dependencies between nations, but instead of geographic proximity we use international relations connectivity (alliances, conflicts, technology partnerships). This enables spatially informed causal effect estimation where cyber operations propagate through international relations networks rather than physical space contingencies or proximity.

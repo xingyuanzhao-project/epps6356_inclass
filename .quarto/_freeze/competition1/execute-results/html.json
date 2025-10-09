@@ -1,0 +1,15 @@
+{
+  "hash": "4e145b6d4cb3b609aea7b7dc59776053",
+  "result": {
+    "engine": "knitr",
+    "markdown": "\n::: {.cell}\n\n```{.r .cell-code}\ndf_hpi_data <- readxl::read_excel(\"HPI.xlsx\")\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nNew names:\n• `` -> `...2`\n• `` -> `...3`\n• `` -> `...4`\n• `` -> `...5`\n• `` -> `...6`\n• `` -> `...7`\n• `` -> `...8`\n```\n\n\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
