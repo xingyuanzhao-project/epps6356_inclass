@@ -13,6 +13,8 @@ website:
         text: About
       - href: proposal.qmd
         text: Proposal
+      - href: comp2.qmd
+        text: Competition 2
 
 format:
   html:

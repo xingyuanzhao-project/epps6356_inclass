@@ -1,0 +1,64 @@
+---
+title: "Competition 2"
+author: "Data Visualization Team"
+format: html
+---
+
+## Competition 2
+
+### Pre-Hackathon
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+## Download COVID data from OWID GitHub
+owidall = read.csv("https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true")
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Deselect cases/rows with OWID
+owidall = owidall[!grepl("^OWID", owidall$iso_code), ]
+# Subset by continent: Europe
+owideu = subset(owidall, continent=="Europe")
+```
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+
+owideu$date = as.Date(owideu$date)
+
+png("c2p1.png", width = 1200, height = 600)
+
+plot(owideu$date, owideu$new_deaths, 
+     pch = 16, 
+     cex = 0.5, 
+     col = "#E91E63",
+     xlab = "Date", 
+     ylab = "COVID Deaths in Europe (Daily)",
+     main = "",
+     xlim = as.Date(c("2020-01-01", "2023-08-31")),
+     ylim = c(0, max(owideu$new_deaths, na.rm = TRUE)),
+     xaxt = "n",
+     bty = "o")
+
+axis.Date(1, at = seq(as.Date("2020-01-01"), as.Date("2023-08-31"), by = "2 months"),
+          format = "%Y-%m", las = 2, cex.axis = 0.7)
+
+df_labels = data.frame(
+  country = c("Germany", "Spain", "Ukraine", "Italy"),
+  stringsAsFactors = FALSE
+)
+
+for(country_name in df_labels$country) {
+  df_country = owideu[owideu$location == country_name, ]
+  if(nrow(df_country) > 0 && any(!is.na(df_country$new_deaths))) {
+    idx_max = which.max(df_country$new_deaths)
+    if(length(idx_max) > 0) {
+      text(df_country$date[idx_max], df_country$new_deaths[idx_max], 
+           labels = country_name, pos = 3, cex = 0.8)
+    }
+  }
+}
+
+invisible(dev.off())
+```
+
+![](c2p1.png)
+

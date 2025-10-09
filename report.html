@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – My Quarto Website</title>
+<title>report – My Quarto Website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
@@ -124,35 +124,104 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#materials" id="toc-materials" class="nav-link active" data-scroll-target="#materials">materials</a></li>
+  <li><a href="#expectation" id="toc-expectation" class="nav-link" data-scroll-target="#expectation">expectation</a></li>
+  <li><a href="#current-status" id="toc-current-status" class="nav-link" data-scroll-target="#current-status">current status</a></li>
+  <li><a href="#issues" id="toc-issues" class="nav-link" data-scroll-target="#issues">issues</a></li>
+  <li><a href="#what-could-have-done-differently" id="toc-what-could-have-done-differently" class="nav-link" data-scroll-target="#what-could-have-done-differently">what could have done differently</a></li>
+  <li><a href="#future-steps-and-options" id="toc-future-steps-and-options" class="nav-link" data-scroll-target="#future-steps-and-options">future steps and options</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="about" class="level2">
-<h2 class="anchored" data-anchor-id="about">About</h2>
-<p>This is a temporary project for the in-class works.</p>
+<section id="materials" class="level3">
+<h3 class="anchored" data-anchor-id="materials">materials</h3>
+<ul>
+<li>a final table, unit being victim</li>
+<li>scraped pdfs arranged by working progress</li>
+<li>4 out of 5 regions are annotated</li>
+</ul>
+</section>
+<section id="expectation" class="level3">
+<h3 class="anchored" data-anchor-id="expectation">expectation</h3>
+<ul>
+<li>to establish the relation between table records and saved pdfs</li>
+<li>cleaned up corpus for finetuning</li>
+</ul>
+</section>
+<section id="current-status" class="level3">
+<h3 class="anchored" data-anchor-id="current-status">current status</h3>
+<ul>
+<li>rearranged the table to be victim-source, for better linkage between record and files</li>
+<li>populated the last region and merge with the final table</li>
+<li>rearranged the pdfs in region/victim structure rather than working progress</li>
+<li>rescraped lost files, so that 80% of the victim-sources are recovered, having correct files linking to the records</li>
+<li>preliminary cleaning of the pdfs <strong>show reference files here</strong></li>
+</ul>
+</section>
+<section id="issues" class="level3">
+<h3 class="anchored" data-anchor-id="issues">issues</h3>
+<ul>
+<li>original table unit is not suitable for buiding record-file relation (solved)</li>
+<li>files are not structured in a way that can be easily tracked (solved)</li>
+<li>pdfs cannot be linked back to records (solved)</li>
+<li>lost files (recovered partially)</li>
+<li>one region is not annotated (not solved)</li>
+<li>pdfs contains content that are not related to the topic, such as ads, comments, placeholders. (not solved. Docling and olmocr can only identify some of them and no 100% guarantee) <strong>add examples here</strong></li>
+</ul>
+</section>
+<section id="what-could-have-done-differently" class="level3">
+<h3 class="anchored" data-anchor-id="what-could-have-done-differently">what could have done differently</h3>
+<ul>
+<li>rescrape everthing at the beginning will save massive time. Reverse engineering is more costly than having a clean start</li>
+</ul>
+</section>
+<section id="future-steps-and-options" class="level3">
+<h3 class="anchored" data-anchor-id="future-steps-and-options">future steps and options</h3>
+<ol type="1">
+<li>get clean text files</li>
+</ol>
+<ul>
+<li>option 1. select and pick the “cleaner” pdfs
+<ul>
+<li>pro:
+<ul>
+<li>files are readily available</li>
+</ul></li>
+<li>con:
+<ul>
+<li>only a very small fraction of the file will be used.</li>
+<li>picking out “cleaner” files may take unknown time, and may need manual labor.</li>
+</ul></li>
+</ul></li>
+<li>option 2. rescrape all available links and save into html.
+<ul>
+<li>pro:
+<ul>
+<li>a clean start</li>
+<li>more files</li>
+<li>timeline is more controlable</li>
+</ul></li>
+<li>con:
+<ul>
+<li>some links might be broken</li>
+</ul></li>
+</ul></li>
+</ul>
+<ol start="2" type="1">
+<li>cleaning
+<ul>
+<li>if using only the “cleaner” pdfs, docling should do the job, if these pdfs are guaranteed to be “cleaner”.</li>
+<li>if taking the total rescraping route, select correct elements from the htmls.</li>
+</ul></li>
+<li>fine-tuning</li>
+</ol>
+<p><strong>use shreyas pipeline, show reference</strong></p>
 
 
 </section>
