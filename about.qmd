@@ -4,5 +4,4 @@ title: "About"
 
 ## About
 
-Information about this project.
-
+This is a temporary project for the in-class works.
