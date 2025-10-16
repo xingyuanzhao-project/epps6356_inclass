@@ -1,0 +1,27 @@
+---
+title: "Assignment 2"
+format: html
+---
+
+![](a2p1.png)
+![](a2p2.png)
+![](a2p3.png)
+![](a2p4.png)
+![](a2p5.png)
+![](a2p6.png)
+![](a2p7.png)
+
+
+![](a2p8.png)
+![](a2p9.png)
+![](a2p10.png)
+![](a2p11.png)
+![](a2p12.png)
+![](a2p13.png)
+![](a2p14.png)
+![](a2p15.png)
+![](a2p16.png)
+![](a2p17.png)
+![](a2p18.png)
+![](a2p19.png)
+![](a2p20.png)

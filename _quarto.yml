@@ -4,17 +4,31 @@ project:
 
 
 website:
-  title: "My Quarto Website"
+  title: "EPPS 6356 Data Visualization"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - href: about.qmd
         text: About
-      - href: proposal.qmd
-        text: Proposal
-      - href: comp2.qmd
-        text: Competition 2
+      - text: Homework
+        menu:
+          - href: hm1.qmd
+            text: Homework 1
+          - href: hm2.qmd
+            text: Homework 2
+          - href: hm3.qmd
+            text: Homework 3
+          - href: hm4.qmd
+            text: Homework 4
+      - text: Hackathon
+        menu:
+          - href: comp2.qmd
+            text: Competition 2
+      - text: Final Project
+        menu:
+          - href: proposal.qmd
+            text: Proposal
 
 format:
   html:
