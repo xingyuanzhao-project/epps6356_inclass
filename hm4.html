@@ -222,10 +222,20 @@ window.Quarto = {
 <section id="plot-1-variable-width-column-chart" class="level2">
 <h2 class="anchored" data-anchor-id="plot-1-variable-width-column-chart">Plot 1: Variable Width Column Chart</h2>
 <p><strong>Chart Type:</strong> Among Items → Two Variables per Item</p>
-<p><strong>Justification:</strong> Variable Width Column Chart was chosen because we need to compare items (countries) while encoding two variables simultaneously - HPI (height) and Population (width).</p>
-<p><strong>Variable Selection:</strong> - <code>Country</code>: Items being compared - <code>HPI</code>: First variable encoded as bar height - <code>Population (thousands)</code>: Second variable encoded as bar width (normalized by max population)</p>
+<p><strong>Justification:</strong> Variable Width Column Chart was chosen because we need to compare items (countries) while encoding two variables simultaneously, HPI (height) and Population (width).</p>
+<p><strong>Variable Selection:</strong></p>
+<ul>
+<li><code>Country</code>: Items being compared</li>
+<li><code>HPI</code>: First variable encoded as bar height</li>
+<li><code>Population (thousands)</code>: Second variable encoded as bar width (normalized by max population)</li>
+</ul>
 <p><strong>Data Selection:</strong> Top 10 countries by HPI were selected using <code>arrange(desc(HPI)) %&gt;% head(10)</code> to focus on the highest performing countries.</p>
-<p><strong>Parameter Choices:</strong> - <code>coord_flip()</code>: Horizontal bars improve country name readability - <code>width = Population/max(Population)</code>: Normalized width prevents extreme size differences - <code>reorder(Country, HPI)</code>: Orders countries by HPI for easier comparison</p>
+<p><strong>Parameter Choices:</strong></p>
+<ul>
+<li><code>coord_flip()</code>: Horizontal bars improve country name readability</li>
+<li><code>width = Population/max(Population)</code>: Normalized width prevents extreme size differences</li>
+<li><code>reorder(Country, HPI)</code>: Orders countries by HPI for easier comparison</li>
+</ul>
 <p><img src="a4p1.png" class="img-fluid"></p>
 </section>
 <section id="plot-2-table" class="level2">
@@ -242,9 +252,20 @@ HPI_i = \beta_0 + \beta_1 \times GDPperCapita_i + \epsilon_i
 <p>Model 3: <span class="math display">\[
 HPI_i = \beta_0 + \beta_1 \times LifeExpectancy_i + \beta_2 \times GDPperCapita_i + \epsilon_i
 \]</span></p>
-<p><strong>Variable Selection:</strong> - Variables in rows: Intercept, Life Expectancy (years), GDP per capita ($) - Models in columns: Model 1 (Life Exp only), Model 2 (GDP only), Model 3 (both predictors) - Model statistics: R-squared, Adjusted R-squared, N</p>
+<p><strong>Variable Selection:</strong></p>
+<ul>
+<li>Variables in rows: Intercept, Life Expectancy (years), GDP per capita ($)</li>
+<li>Models in columns: Model 1 (Life Exp only), Model 2 (GDP only), Model 3 (both predictors)</li>
+<li>Model statistics: R-squared, Adjusted R-squared, N</li>
+</ul>
 <p><strong>Data Selection:</strong> Three regression models predicting HPI from Life Expectancy and/or GDP per capita.</p>
-<p><strong>Parameter Choices:</strong> - <code>sprintf()</code>: Formats coefficients with standard errors in parentheses below - Significance stars (***): Indicates statistical significance - Variables as rows, models as columns: Standard format - <code>grid.table()</code>: Displays formatted regression results in tabular form</p>
+<p><strong>Parameter Choices:</strong></p>
+<ul>
+<li><code>sprintf()</code>: Formats coefficients with standard errors in parentheses below</li>
+<li>Significance stars (***): Indicates statistical significance</li>
+<li>Variables as rows, models as columns: Standard format</li>
+<li><code>grid.table()</code>: Displays formatted regression results in tabular form</li>
+</ul>
 <div style="margin: 10px 0; padding: 0;">
 <p><img src="a4p2.png" style="width: 100%; min-width: 1000px; height: auto; display: block;"></p>
 </div>
@@ -253,18 +274,43 @@ HPI_i = \beta_0 + \beta_1 \times LifeExpectancy_i + \beta_2 \times GDPperCapita_
 <h2 class="anchored" data-anchor-id="plot-3-bar-chart">Plot 3: Bar Chart</h2>
 <p><strong>Chart Type:</strong> Among Items → One Variable per Item → Few Categories → Many Items</p>
 <p><strong>Justification:</strong> Side-by-side horizontal bar charts chosen to compare many items (20 countries total: top 10 and bottom 10) across two categories.</p>
-<p><strong>Variable Selection:</strong> - <code>Country</code>: Many items being compared (10 per category) - <code>HPI</code>: Single variable measured across all items - Categories: Top performers vs Bottom performers</p>
+<p><strong>Variable Selection:</strong></p>
+<ul>
+<li><code>Country</code>: Many items being compared (10 per category)</li>
+<li><code>HPI</code>: Single variable measured across all items</li>
+<li>Categories: Top performers vs Bottom performers</li>
+</ul>
 <p><strong>Data Selection:</strong> Top 10 and Bottom 10 countries by HPI, arranged by <code>arrange(desc(HPI))</code> and <code>arrange(HPI)</code> respectively.</p>
-<p><strong>Parameter Choices:</strong> - <code>par(mfrow = c(1, 2))</code>: Creates side-by-side subplots for visual comparison - <code>horiz = TRUE</code>: Horizontal bars accommodate country names - <code>las = 1</code>: Horizontal label orientation for readability - Different colors (<code>coral</code> vs <code>lightblue</code>): Distinguishes the two categories - Two separate barplots: Shows contrast between high and low performers</p>
+<p><strong>Parameter Choices:</strong></p>
+<ul>
+<li><code>par(mfrow = c(1, 2))</code>: Creates side-by-side subplots for visual comparison</li>
+<li><code>horiz = TRUE</code>: Horizontal bars accommodate country names</li>
+<li><code>las = 1</code>: Horizontal label orientation for readability</li>
+<li>Different colors (<code>coral</code> vs <code>lightblue</code>): Distinguishes the two categories</li>
+<li>Two separate barplots: Shows contrast between high and low performers</li>
+</ul>
 <p><img src="a4p3.png" class="img-fluid"></p>
 </section>
 <section id="plot-4-column-chart" class="level2">
 <h2 class="anchored" data-anchor-id="plot-4-column-chart">Plot 4: Column Chart</h2>
 <p><strong>Chart Type:</strong> Among Items → One Variable per Item → Few Categories → Few Items</p>
 <p><strong>Justification:</strong> Grouped column chart with dual y-axes chosen to compare few items (5 countries) on two variables with different scales (HPI and Life Expectancy).</p>
-<p><strong>Variable Selection:</strong> - <code>Country</code>: Few items arranged for clarity - <code>HPI</code>: First variable (left y-axis) - <code>Life Expectancy (years)</code>: Second variable (right y-axis, scaled)</p>
+<p><strong>Variable Selection:</strong></p>
+<ul>
+<li><code>Country</code>: Few items arranged for clarity</li>
+<li><code>HPI</code>: First variable (left y-axis)</li>
+<li><code>Life Expectancy (years)</code>: Second variable (right y-axis, scaled)</li>
+</ul>
 <p><strong>Data Selection:</strong> Top 5 countries by HPI selected using <code>arrange(desc(HPI)) %&gt;% head(5)</code>.</p>
-<p><strong>Parameter Choices:</strong> - <code>position_nudge()</code>: Offsets bars horizontally (±0.2) for side-by-side display - <code>width = 0.4</code>: Narrower bars to accommodate two variables per country - <code>scale_y_continuous()</code> with <code>sec.axis</code>: Creates dual y-axes for different scales - <code>scaling_factor = 100 / max(Life Expectancy)</code>: Scales Life Expectancy to comparable range with HPI - <code>fill</code> aesthetic: Distinguishes between HPI and Life Expectancy bars - <code>reorder(Country, HPI)</code>: Orders countries by HPI ranking</p>
+<p><strong>Parameter Choices:</strong></p>
+<ul>
+<li><code>position_nudge()</code>: Offsets bars horizontally (±0.2) for side-by-side display</li>
+<li><code>width = 0.4</code>: Narrower bars to accommodate two variables per country</li>
+<li><code>scale_y_continuous()</code> with <code>sec.axis</code>: Creates dual y-axes for different scales</li>
+<li><code>scaling_factor = 100 / max(Life Expectancy)</code>: Scales Life Expectancy to comparable range with HPI</li>
+<li><code>fill</code> aesthetic: Distinguishes between HPI and Life Expectancy bars</li>
+<li><code>reorder(Country, HPI)</code>: Orders countries by HPI ranking</li>
+</ul>
 <p><img src="a4p4.png" class="img-fluid"></p>
 
 

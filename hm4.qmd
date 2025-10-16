@@ -18,9 +18,10 @@ df_hpi <- df_hpi[!is.na(df_hpi$HPI), ]
 
 **Chart Type:** Among Items → Two Variables per Item
 
-**Justification:** Variable Width Column Chart was chosen because we need to compare items (countries) while encoding two variables simultaneously - HPI (height) and Population (width).
+**Justification:** Variable Width Column Chart was chosen because we need to compare items (countries) while encoding two variables simultaneously, HPI (height) and Population (width).
 
 **Variable Selection:**
+
 - `Country`: Items being compared
 - `HPI`: First variable encoded as bar height
 - `Population (thousands)`: Second variable encoded as bar width (normalized by max population)
@@ -28,6 +29,7 @@ df_hpi <- df_hpi[!is.na(df_hpi$HPI), ]
 **Data Selection:** Top 10 countries by HPI were selected using `arrange(desc(HPI)) %>% head(10)` to focus on the highest performing countries.
 
 **Parameter Choices:**
+
 - `coord_flip()`: Horizontal bars improve country name readability
 - `width = Population/max(Population)`: Normalized width prevents extreme size differences
 - `reorder(Country, HPI)`: Orders countries by HPI for easier comparison
@@ -58,6 +60,7 @@ HPI_i = \beta_0 + \beta_1 \times LifeExpectancy_i + \beta_2 \times GDPperCapita_
 $$
 
 **Variable Selection:**
+
 - Variables in rows: Intercept, Life Expectancy (years), GDP per capita ($)
 - Models in columns: Model 1 (Life Exp only), Model 2 (GDP only), Model 3 (both predictors)
 - Model statistics: R-squared, Adjusted R-squared, N
@@ -65,6 +68,7 @@ $$
 **Data Selection:** Three regression models predicting HPI from Life Expectancy and/or GDP per capita.
 
 **Parameter Choices:**
+
 - `sprintf()`: Formats coefficients with standard errors in parentheses below
 - Significance stars (***): Indicates statistical significance
 - Variables as rows, models as columns: Standard format
@@ -81,6 +85,7 @@ $$
 **Justification:** Side-by-side horizontal bar charts chosen to compare many items (20 countries total: top 10 and bottom 10) across two categories.
 
 **Variable Selection:**
+
 - `Country`: Many items being compared (10 per category)
 - `HPI`: Single variable measured across all items
 - Categories: Top performers vs Bottom performers
@@ -88,6 +93,7 @@ $$
 **Data Selection:** Top 10 and Bottom 10 countries by HPI, arranged by `arrange(desc(HPI))` and `arrange(HPI)` respectively.
 
 **Parameter Choices:**
+
 - `par(mfrow = c(1, 2))`: Creates side-by-side subplots for visual comparison
 - `horiz = TRUE`: Horizontal bars accommodate country names
 - `las = 1`: Horizontal label orientation for readability
@@ -103,6 +109,7 @@ $$
 **Justification:** Grouped column chart with dual y-axes chosen to compare few items (5 countries) on two variables with different scales (HPI and Life Expectancy).
 
 **Variable Selection:**
+
 - `Country`: Few items arranged for clarity
 - `HPI`: First variable (left y-axis)
 - `Life Expectancy (years)`: Second variable (right y-axis, scaled)
@@ -110,6 +117,7 @@ $$
 **Data Selection:** Top 5 countries by HPI selected using `arrange(desc(HPI)) %>% head(5)`.
 
 **Parameter Choices:**
+
 - `position_nudge()`: Offsets bars horizontally (±0.2) for side-by-side display
 - `width = 0.4`: Narrower bars to accommodate two variables per country
 - `scale_y_continuous()` with `sec.axis`: Creates dual y-axes for different scales
