@@ -100,7 +100,7 @@ df_regtable <- data.frame(
   )
 )
 
-png("a4p2.png", width = 800, height = 400)
+png("a4p2.png")
 # displays regression table
 grid.table(df_regtable, rows = NULL)
 dev.off()
