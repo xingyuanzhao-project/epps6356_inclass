@@ -1,0 +1,3 @@
+  In-class coding competition 3.0  1. Build a Shiny app that displays charts 9, 18 in the Thought Starter and one additional chart of your team’s choice, with reactive and/or interactive elements.  You can use any dataset but must cite the source  Rules: a. Generate a program to create a chart using either R Graphics or ggplot2 or any R packages (no other methods/software are allowed) b. Codes and products posted on own GitHub website/blog c. Submit to Submission folder.  Timestamps determine the top three winners.  d. Suggestion: must demonstrate team works instead of individual effort.  Pay attention to detail and embellish the chart with design. Coordinator is in charge of delegation and brief synergy report.    
+ 
+EPPS6356 Data Visualization 

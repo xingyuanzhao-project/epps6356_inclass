@@ -4,4 +4,4 @@ title: "About"
 
 ## About
 
-This is a temporary project for the in-class works.
+This is the website for EPPS 6356 Data Visualization coursework.

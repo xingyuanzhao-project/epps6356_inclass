@@ -1,0 +1,3 @@
+  In-class Coding Competition 2  1. Teams seated together 2. Time: 10 minutes 3. Create R codes to replicate the following chart (hint: mpg)  
+ 4. Rules: a. Each team will demonstrate the code the create charts. b. Winning criteria: i. Improvement to original chart ii. Cleaner and leaner codes iii. Smaller number of packages called iv. Class will judge quality of chart   
+EPPS6356 Data Visualization 
