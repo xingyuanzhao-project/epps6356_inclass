@@ -7,9 +7,9 @@ The scatterplot is configured by first setting graphical parameters with par() t
 
 All four models use identical specifications—same estimator (lm), same formula (y~x), no transformations—differing only in column assignments (x1-x4, y1-y4). The simple version plots with default black points and lines, while the fancy version uses red borders (col="red"), orange fill (bg="orange"), triangles (pch=21), larger size (cex=1.2), and blue regression lines, demonstrating how visual customization reveals different data patterns despite identical model specifications.
 
-![](a3p1.png)
-![](a3p2.png)
-![](a3p3.png)
-![](a3p4.png)
+![](plots/a3p1.png)
+![](plots/a3p2.png)
+![](plots/a3p3.png)
+![](plots/a3p4.png)
 
-![](c2p1.png)
+![](plots/c2p1.png)

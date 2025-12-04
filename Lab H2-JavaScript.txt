@@ -1,0 +1,124 @@
+Internet Mapping and Information Processing
+Instructor: Dr. Fang Qiu
+Due Date: Next Week Before Class
+
+Lab H2 Advanced Web Programming (JavaScript)
+
+Objective:
+
+	•	You will create variables to represent the outputs of the method. You will learn how deal with time and date. You will use if-else structure to control program action and use for-loop to do repetitive actions. 
+	•	You will use loop, function and arrays to calculate the Sigma n (summary from 1 to n) and Factorial n. 
+
+Part 1: JavaScript Program Basics
+
+Task1. Assign variables
+
+This will bring up a prompt box to the page asking for the user’s first and last name.
+	•	Create two prompts. One will ask for the first name and one will ask for the last name. Assign each one with a different variable name.
+
+var firstname
+var lastname
+
+	•	An equal sign “=”denotes that the variable name will equal the output of the prompt box.
+	•	Add a document.write statement that calls for the text “Welcome”
+
+var firstname = prompt("Type in your first name", "Firstname");
+var lastname = prompt("Type in your last name", "Lastname");
+
+document.write ("Hello " + firstname + " " + lastname + ", Welcome!");
+
+Task 2. Date data type
+
+Here you need to display current time information using a new object Date, and methods like getday(), getDate(), getMonth()
+	•	Assign a varible name to the Date Object. 
+var rightNow = new Date() 
+	•	In order to obtain the correct number for date, month and year, you need to call appropriate date method and assign the output to each variable.
+var dy
+var mth
+var yr
+	•	Use rightNow.getDate to get the number of the day. Add another new method, rightNow.getMonth and rightNow.getYear to return the number of the month and the year. Notice the value for the month, is that correct?
+	•	Use document.write statement to print the output.
+
+var rightNow = new Date();
+var dd = rightNow.getDate();
+var dm =rightNow.getMonth();
+var dy = rightNow.getYear();
+var t = dm+1 + "/" + dd + "/" + dy;
+document.write ("<br> Today's date is " + t);
+
+Task 3. If … else branch
+Use a confirm() method to check if the use wants to see your home page or not. Use an if and else statement to control screen output.
+
+if (confirm("Are you sure you want to enter my home page?"))
+{
+alert("Good choice!");
+location.href= 'http://www.utdallas.edu/~ffqiu';
+}
+else
+{
+alert("You stay right here!");
+}
+
+Task4. Sigma n – for loop
+
+Create a for loop to calculate Sigma n (Summation from 1 to n).
+ 
+var n= 100;
+var sum=0;
+for (var i= 1; i<=n; i++)
+   sum += i;
+document.write("<br><b> The sum is " + sum + "</b>");
+
+Part 2: Iteration, Function and Arrays
+
+Task1. Sigma n
+
+	•	Copy the procedure for calculating Sigma n (last lab) to a new file. 
+var n= 100;
+var sum=0; for (var i= 1; i<=n; i++)    sum += i; document.write("<b> The sum is " + sum + "</b>");
+
+	•	Convert this into a function that accepts n as input parameter. 
+
+function sum1n(n)
+{
+var sum1 = 0;
+for (var i=1; i<=n; i++)
+	sum1+= i;
+return sum1;
+}
+
+	•	Create another function that can calculate the sigma of a set of input values, which are saved in an array. The output sigma of each value is also return as an array. 
+
+function sumArray(x,y){
+  for (var i =0; i<x.length; i++){
+  	  y[i]=sum1n(x[i]);
+/*
+ 	 document.write("x=" + x[i]+ " ");
+	  document.write("y=" + y[i] +"<br>");
+*/
+	  }
+}
+
+	•	Test the functions in the main program
+var a = [5, 7, 11, 13] var b = new Array();  sumArray(a,b); for (var i=0;i<b.length;i++){    document.write("a[" + i +"]=" + a[i]+ " ");    document.write("b[" + i +"]=" + b[i]+"<br>" ); }
+
+	•	Create another function that implement the sigma function using recursion instead of iteration loop.
+function sum2n(n)
+{
+ if (number <=0)
+   return 0;
+ else
+	return n+sum2n(n -1);
+}
+document.write("<b> The sum is " + sum2n(100) + "</b>");
+
+
+Home Work
+ 
+	•	LabH2a: Create a JavaScript embedded homepage to check user’s login name(=”classname”) and password(=”webgis”). If both are correct, greet the user with the exact time of login and show him your home page. Otherwise, tell him his user name and/or password is wrong in a separate page.
+	•	LabH2b: Create a for loop to calculate Factorial 10 (i.e. the products from 1 to 10) and print out the result.
+	•	LabH2c: Modify the function for calculating Sigma n with while loop instead of for loop.
+	•	LabH2d: Create a similar JavaScript function that calculates the Factorial n using do while loop.
+
+Turn in your labH2a, labH2b, labH2c, labHd into the dropbox.
+

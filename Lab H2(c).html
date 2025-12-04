@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab H2(c) - Sigma n with While Loop</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Lab H2(c): Calculate Sigma n with While Loop</h1>
+    
+    <script>
+        // Function to calculate Sigma n using while loop
+        function sum1n(n) {
+            var sum = 0;
+            var i = 1;
+            
+            while (i <= n) {
+                sum += i;
+                i++;
+            }
+            
+            return sum;
+        }
+        
+        // Test the function
+        var n = 100;
+        var result = sum1n(n);
+        
+        document.write("<p><b>The sum from 1 to " + n + " = " + result + "</b></p>");
+    </script>
+    
+</body>
+</html>
+

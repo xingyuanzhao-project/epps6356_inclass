@@ -1,0 +1,71 @@
+---
+title: "Assignment 5"
+format: html
+---
+
+## Task 1: Base R Graphics
+
+### 1a. Histogram
+
+![](plots/a5p1a.png)
+
+### 1b.i. Barchart - Vertical
+
+![](plots/a5p1bi.png)
+
+### 1b.ii. Barchart - Horizontal
+
+![](plots/a5p1bii.png)
+
+### 1c. Piechart
+
+![](plots/a5p1c.png)
+
+### 1d. Boxplot
+
+![](plots/a5p1d.png)
+
+### 1e. Scatterplot
+
+![](plots/a5p1e.png)
+
+## Task 2: ggplot2 Graphics
+
+### 2a. Histogram
+
+![](plots/a5p2a.png)
+
+### 2b.i. Barchart - Vertical
+
+![](plots/a5p2bi.png)
+
+### 2b.ii. Barchart - Horizontal
+
+![](plots/a5p2bii.png)
+
+### 2c. Piechart
+
+![](plots/a5p2c.png)
+
+### 2d. Boxplot
+
+![](plots/a5p2d.png)
+
+### 2e. Scatterplot
+
+![](plots/a5p2e.png)
+
+## Task 3: Export Formats
+
+All charts were exported in the following formats:
+
+- **PDF**: Vector format, scalable, best for printing and publications
+- **JPG**: Raster format, compressed, smaller file size, lossy compression
+- **SVG**: Vector format, scalable, editable, best for web and graphics software
+- **TIFF**: Raster format, lossless compression, high quality, larger file size
+- **BMP**: Raster format, uncompressed, very large file size, highest quality
+
+### File Format Comparison
+
+Vector formats (PDF, SVG) maintain quality at any scale and have smaller file sizes for simple graphics. Raster formats (JPG, TIFF, BMP) are resolution-dependent with JPG offering the best compression but lossy quality, TIFF providing lossless compression, and BMP offering uncompressed maximum quality at the cost of very large file sizes.
+

@@ -1,0 +1,72 @@
+---
+title: "Assignment 6"
+format: html
+---
+
+## Shiny Application: Data Visualization Platform
+
+This assignment demonstrates interactive data visualization using Shiny, featuring both built-in R datasets and custom data analysis.
+
+### Application Features
+
+**Task B: Built-in Datasets**
+
+The application includes three classic R datasets with interactive visualizations:
+
+- **mtcars**: Motor Trend Car Road Tests - Explore relationships between variables like MPG, horsepower, and weight with scatter plots and box plots
+- **USArrests**: Violent Crime Rates by US State - View top states by crime statistics (Murder, Assault, Urban Population, Rape)
+- **uspop**: US Population by Decade (1790-1970) - Visualize historical population growth with line and bar charts
+
+**Task D: CFR Cyber Attacks Data**
+
+Custom dataset analysis featuring:
+
+- Global cyber attack statistics from the Council on Foreign Relations
+- Interactive visualizations including horizontal/vertical bar charts, lollipop charts, and distribution plots
+- Top N country selector to focus on specific regions
+- Real-time statistics showing total attacks, affected countries, and most targeted nation
+
+### Interactive Application
+
+<iframe width="100%" height="800" src="https://jaketinoz.shinyapps.io/epps6356_assignment6/" frameborder="0" allowfullscreen></iframe>
+
+### Technical Implementation
+
+**Customization (Task A):**
+
+- Custom Arial font family applied throughout the application
+- Consistent color scheme with theme options
+- Responsive layout with sidebar controls
+
+**Deployment (Task C):**
+
+- Published to shinyapps.io platform
+- Application URL: [https://jaketinoz.shinyapps.io/epps6356_assignment6/](https://jaketinoz.shinyapps.io/epps6356_assignment6/)
+- Accessible from any web browser
+
+### Data Sources
+
+- **Built-in Datasets**: R's `datasets` package (mtcars, USArrests, uspop)
+- **Custom Data**: Council on Foreign Relations (CFR) Cyber Operations Tracker
+  - File: `CFR_country_total_with_ISO2 (1).csv`
+  - Contains cyber attack counts by country with ISO2 and ISO3 codes
+
+### Key Features
+
+- **Interactivity**: Dynamic controls for dataset selection, variable choice, and visualization type
+- **Multiple Visualizations**: Scatter plots, bar charts, line charts, box plots, histograms, and lollipop charts
+- **Data Tables**: View raw data alongside visualizations
+- **Summary Statistics**: Real-time statistical summaries for all datasets
+- **Responsive Design**: Adapts to different screen sizes
+
+### Technologies Used
+
+- **R Shiny**: Interactive web application framework
+- **ggplot2**: Advanced data visualization
+- **dplyr**: Data manipulation and transformation
+- **shinyapps.io**: Cloud hosting platform
+
+---
+
+*Assignment completed for EPPS6356 Data Visualization*
+

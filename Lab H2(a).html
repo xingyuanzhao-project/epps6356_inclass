@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page - LabH2a</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+        button {
+            background-color: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #764ba2;
+        }
+        .error-message {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 400px;
+            text-align: center;
+        }
+        .error-message h2 {
+            color: #e74c3c;
+        }
+        .error-message p {
+            color: #555;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .success-message {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 400px;
+            text-align: center;
+        }
+        .success-message h2 {
+            color: #27ae60;
+        }
+        .success-message p {
+            color: #555;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container" id="loginForm">
+    <h2>Login to Homepage</h2>
+    <form onsubmit="return false;">
+        <div class="input-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter username" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required>
+        </div>
+        <div class="btn-container">
+            <button type="button" onclick="checkLogin()">Login</button>
+        </div>
+    </form>
+</div>
+
+<script>
+function checkLogin() {
+    // Get input values
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    
+    // Correct credentials
+    var correctUsername = "classname";
+    var correctPassword = "webgis";
+    
+    // Check if both username and password are correct
+    if (username === correctUsername && password === correctPassword) {
+        // Get current date and time
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        var month = now.getMonth() + 1;
+        var day = now.getDate();
+        var year = now.getFullYear();
+        
+        // Format time with leading zeros if needed
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        month = month < 10 ? "0" + month : month;
+        day = day < 10 ? "0" + day : day;
+        
+        var currentDateTime = month + "/" + day + "/" + year + " at " + hours + ":" + minutes + ":" + seconds;
+        
+        // Show success message with login time
+        document.body.innerHTML = '<div class="success-message">' +
+            '<h2>✓ Login Successful!</h2>' +
+            '<p>Welcome, <strong>' + username + '</strong>!</p>' +
+            '<p>Login Time: <strong>' + currentDateTime + '</strong></p>' +
+            '<p>Redirecting to your homepage...</p>' +
+            '</div>';
+        
+        // Redirect to homepage after 3 seconds
+        setTimeout(function() {
+            window.location.href = "Lab H1(a).html";
+        }, 3000);
+        
+    } else {
+        // Determine what went wrong
+        var errorMsg = "";
+        
+        if (username !== correctUsername && password !== correctPassword) {
+            errorMsg = "Both username and password are incorrect!";
+        } else if (username !== correctUsername) {
+            errorMsg = "Username is incorrect!";
+        } else if (password !== correctPassword) {
+            errorMsg = "Password is incorrect!";
+        }
+        
+        // Show error message in a separate page
+        document.body.innerHTML = '<div class="error-message">' +
+            '<h2>✗ Login Failed</h2>' +
+            '<p><strong>' + errorMsg + '</strong></p>' +
+            '<p>Please check your credentials and try again.</p>' +
+            '<p>Hint: Username should be "classname" and Password should be "webgis"</p>' +
+            '<button onclick="location.reload()">Try Again</button>' +
+            '</div>';
+    }
+}
+
+// Allow Enter key to submit
+document.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        checkLogin();
+    }
+});
+</script>
+
+</body>
+</html>
+

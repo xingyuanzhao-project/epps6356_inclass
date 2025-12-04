@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab H2(d) - Factorial n with Do While Loop</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Lab H2(d): Calculate Factorial n with Do While Loop</h1>
+    
+    <script>
+        // Function to calculate Factorial n using do while loop
+        function factorial(n) {
+            var result = 1;
+            var i = 1;
+            
+            do {
+                result *= i;
+                i++;
+            } while (i <= n);
+            
+            return result;
+        }
+        
+        // Test the function
+        var n = 10;
+        var result = factorial(n);
+        
+        document.write("<p><b>Factorial of " + n + " = " + result + "</b></p>");
+    </script>
+    
+</body>
+</html>
+

@@ -5,4 +5,8 @@ format: html
 
 Anscombe's quartet demonstrates that identical numerical summaries can mask fundamentally different data structures that are immediately apparent through visualization. The solution is to always plot data before statistical modeling to detect outliers, nonlinearity, and influential observations that summary statistics cannot reveal.
 
-![](a1p1.png)
+![](plots/a1p1.png)
+
+## Chart Critique
+
+Figure 2 in ["Social network analysis in Telecom data"](https://link.springer.com/article/10.1186/s40537-019-0264-6) by Al-Molhem et al. (2019) shows a telecom network where overlapping edges make it impossible to see connections. The red nodes mark influencers, but the blue tangle tells you nothing about how they connect to others. A matrix view or separate small networks for each influencer would actually show the data instead of this decorative blob.

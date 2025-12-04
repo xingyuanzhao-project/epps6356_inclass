@@ -14,18 +14,53 @@
     "text": "owideu$date = as.Date(owideu$date)\n\npng(\"c2p1.png\", width = 1200, height = 600)\n\nplot(owideu$date, owideu$new_deaths, \n     pch = 16, \n     cex = 0.5, \n     col = \"#E91E63\",\n     xlab = \"Date\", \n     ylab = \"COVID Deaths in Europe (Daily)\",\n     main = \"\",\n     xlim = as.Date(c(\"2020-01-01\", \"2023-08-31\")),\n     ylim = c(0, max(owideu$new_deaths, na.rm = TRUE)),\n     xaxt = \"n\",\n     bty = \"o\")\n\naxis.Date(1, at = seq(as.Date(\"2020-01-01\"), as.Date(\"2023-08-31\"), by = \"2 months\"),\n          format = \"%Y-%m\", las = 2, cex.axis = 0.7)\n\ndf_labels = data.frame(\n  country = c(\"Germany\", \"Spain\", \"Ukraine\", \"Italy\"),\n  stringsAsFactors = FALSE\n)\n\nfor(country_name in df_labels$country) {\n  df_country = owideu[owideu$location == country_name, ]\n  if(nrow(df_country) &gt; 0 && any(!is.na(df_country$new_deaths))) {\n    idx_max = which.max(df_country$new_deaths)\n    if(length(idx_max) &gt; 0) {\n      text(df_country$date[idx_max], df_country$new_deaths[idx_max], \n           labels = country_name, pos = 3, cex = 0.8)\n    }\n  }\n}\n\ninvisible(dev.off())"
   },
   {
-    "objectID": "competition1.html",
-    "href": "competition1.html",
+    "objectID": "simulation.html",
+    "href": "simulation.html",
     "title": "EPPS 6356 Data Visualization",
     "section": "",
-    "text": "df_hpi_data &lt;- readxl::read_excel(\"HPI.xlsx\")\n\nNew names:\n• `` -&gt; `...2`\n• `` -&gt; `...3`\n• `` -&gt; `...4`\n• `` -&gt; `...5`\n• `` -&gt; `...6`\n• `` -&gt; `...7`\n• `` -&gt; `...8`"
+    "text": "AI simulation design: (this is better than silicon sample) 1. static llm, like gpt 2. contexual intelligence, like rag? 3. multi agent architecture, each specialized by domain 4. prob sim layer: agent based sim using forecasting algo 5. realt time adaptive agent: optimized agents+continue/live data"
   },
   {
-    "objectID": "hm3.html",
-    "href": "hm3.html",
-    "title": "Assignment 3",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "The scatterplot is configured by first setting graphical parameters with par() to control label orientation and margins, then creating an empty plot window with plot.new() and plot.window(), adding two trend lines with lines(), overlaying distinct point styles using points() with different pch values, customizing axis appearance with axis() and par() color parameters, drawing a U-shaped box with box(bty=“u”), and finally labeling axes with mtext() and adding identifying text with text().\nAll four models use identical specifications—same estimator (lm), same formula (y~x), no transformations—differing only in column assignments (x1-x4, y1-y4). The simple version plots with default black points and lines, while the fancy version uses red borders (col=“red”), orange fill (bg=“orange”), triangles (pch=21), larger size (cex=1.2), and blue regression lines, demonstrating how visual customization reveals different data patterns despite identical model specifications."
+    "text": "This is a temporary project for the in-class works."
+  },
+  {
+    "objectID": "about.html#about",
+    "href": "about.html#about",
+    "title": "About",
+    "section": "",
+    "text": "This is a temporary project for the in-class works."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "This is the portfolio website for EPPS 6356 Data Visualization coursework.\n\n\n\nHomework 1 - Anscombe’s Quartet & Chart Critique\nHomework 2 - Data Visualization Practice\nHomework 3 - Advanced R Graphics\nHomework 4 - HPI Data Visualization\nHomework 5 - Base R vs ggplot2 & File Formats\nHomework 6 - Interactive Shiny Applications\n\n\n\n\n\nProject Proposal - Research Proposal\nFinal Report - Complete Analysis & Visualization"
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Home",
+    "section": "",
+    "text": "This is the portfolio website for EPPS 6356 Data Visualization coursework.\n\n\n\nHomework 1 - Anscombe’s Quartet & Chart Critique\nHomework 2 - Data Visualization Practice\nHomework 3 - Advanced R Graphics\nHomework 4 - HPI Data Visualization\nHomework 5 - Base R vs ggplot2 & File Formats\nHomework 6 - Interactive Shiny Applications\n\n\n\n\n\nProject Proposal - Research Proposal\nFinal Report - Complete Analysis & Visualization"
+  },
+  {
+    "objectID": "hm1.html",
+    "href": "hm1.html",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "Anscombe’s quartet demonstrates that identical numerical summaries can mask fundamentally different data structures that are immediately apparent through visualization. The solution is to always plot data before statistical modeling to detect outliers, nonlinearity, and influential observations that summary statistics cannot reveal."
+  },
+  {
+    "objectID": "hm1.html#chart-critique",
+    "href": "hm1.html#chart-critique",
+    "title": "Assignment 1",
+    "section": "Chart Critique",
+    "text": "Chart Critique\nFigure 2 in “Social network analysis in Telecom data” by Al-Molhem et al. (2019) shows a telecom network where overlapping edges make it impossible to see connections. The red nodes mark influencers, but the blue tangle tells you nothing about how they connect to others. A matrix view or separate small networks for each influencer would actually show the data instead of this decorative blob."
   },
   {
     "objectID": "hm4.html",
@@ -63,6 +98,20 @@
     "text": "Plot 4: Column Chart\nChart Type: Among Items → One Variable per Item → Few Categories → Few Items\nJustification: Grouped column chart with dual y-axes chosen to compare few items (5 countries) on two variables with different scales (HPI and Life Expectancy).\nVariable Selection:\n\nCountry: Few items arranged for clarity\nHPI: First variable (left y-axis)\nLife Expectancy (years): Second variable (right y-axis, scaled)\n\nData Selection: Top 5 countries by HPI selected using arrange(desc(HPI)) %&gt;% head(5).\nParameter Choices:\n\nposition_nudge(): Offsets bars horizontally (±0.2) for side-by-side display\nwidth = 0.4: Narrower bars to accommodate two variables per country\nscale_y_continuous() with sec.axis: Creates dual y-axes for different scales\nscaling_factor = 100 / max(Life Expectancy): Scales Life Expectancy to comparable range with HPI\nfill aesthetic: Distinguishes between HPI and Life Expectancy bars\nreorder(Country, HPI): Orders countries by HPI ranking"
   },
   {
+    "objectID": "hm5.html#task-2-ggplot2-graphics",
+    "href": "hm5.html#task-2-ggplot2-graphics",
+    "title": "Assignment 5",
+    "section": "Task 2: ggplot2 Graphics",
+    "text": "Task 2: ggplot2 Graphics\n\n2a. Histogram\n\n\n\n2b.i. Barchart - Vertical\n\n\n\n2b.ii. Barchart - Horizontal\n\n\n\n2c. Piechart\n\n\n\n2d. Boxplot\n\n\n\n2e. Scatterplot"
+  },
+  {
+    "objectID": "hm5.html#task-3-export-formats",
+    "href": "hm5.html#task-3-export-formats",
+    "title": "Assignment 5",
+    "section": "Task 3: Export Formats",
+    "text": "Task 3: Export Formats\nAll charts were exported in the following formats:\n\nPDF: Vector format, scalable, best for printing and publications\nJPG: Raster format, compressed, smaller file size, lossy compression\nSVG: Vector format, scalable, editable, best for web and graphics software\nTIFF: Raster format, lossless compression, high quality, larger file size\nBMP: Raster format, uncompressed, very large file size, highest quality\n\n\nFile Format Comparison\nVector formats (PDF, SVG) maintain quality at any scale and have smaller file sizes for simple graphics. Raster formats (JPG, TIFF, BMP) are resolution-dependent with JPG offering the best compression but lossy quality, TIFF providing lossless compression, and BMP offering uncompressed maximum quality at the cost of very large file sizes."
+  },
+  {
     "objectID": "report.html",
     "href": "report.html",
     "title": "EPPS 6356 Data Visualization",
@@ -70,39 +119,88 @@
     "text": "materials\n\na final table, unit being victim\nscraped pdfs arranged by working progress\n4 out of 5 regions are annotated\n\n\n\nexpectation\n\nto establish the relation between table records and saved pdfs\ncleaned up corpus for finetuning\n\n\n\ncurrent status\n\nrearranged the table to be victim-source, for better linkage between record and files\npopulated the last region and merge with the final table\nrearranged the pdfs in region/victim structure rather than working progress\nrescraped lost files, so that 80% of the victim-sources are recovered, having correct files linking to the records\npreliminary cleaning of the pdfs show reference files here\n\n\n\nissues\n\noriginal table unit is not suitable for buiding record-file relation (solved)\nfiles are not structured in a way that can be easily tracked (solved)\npdfs cannot be linked back to records (solved)\nlost files (recovered partially)\none region is not annotated (not solved)\npdfs contains content that are not related to the topic, such as ads, comments, placeholders. (not solved. Docling and olmocr can only identify some of them and no 100% guarantee) add examples here\n\n\n\nwhat could have done differently\n\nrescrape everthing at the beginning will save massive time. Reverse engineering is more costly than having a clean start\n\n\n\nfuture steps and options\n\nget clean text files\n\n\noption 1. select and pick the “cleaner” pdfs\n\npro:\n\nfiles are readily available\n\ncon:\n\nonly a very small fraction of the file will be used.\npicking out “cleaner” files may take unknown time, and may need manual labor.\n\n\noption 2. rescrape all available links and save into html.\n\npro:\n\na clean start\nmore files\ntimeline is more controlable\n\ncon:\n\nsome links might be broken\n\n\n\n\ncleaning\n\nif using only the “cleaner” pdfs, docling should do the job, if these pdfs are guaranteed to be “cleaner”.\nif taking the total rescraping route, select correct elements from the htmls.\n\nfine-tuning\n\nuse shreyas pipeline, show reference"
   },
   {
-    "objectID": "hm1.html",
-    "href": "hm1.html",
-    "title": "Assignment 1",
+    "objectID": "Assignments/assignment06.html",
+    "href": "Assignments/assignment06.html",
+    "title": "EPPS 6356 Data Visualization",
     "section": "",
-    "text": "Anscombe’s quartet demonstrates that identical numerical summaries can mask fundamentally different data structures that are immediately apparent through visualization. The solution is to always plot data before statistical modeling to detect outliers, nonlinearity, and influential observations that summary statistics cannot reveal."
+    "text": "Assignment 6 a. Run the sample Shiny programs in Teams folder i. Can you change to your personal font? ii. Hint: Append the following to the ui part of the program b. Build a Shiny app using the following datasets (in datasets library): i. mtcars ii. USArrests iii. uspop c. Publish the App to https://www.shinyapps.io account d. Build a Shiny app loaded with your own data sets e. Insert an iframe to your GitHub website/page to showcase your data and charts Example:\nEPPS6356 Data Visualization  tags$style(HTML(” body { background-color: white; color: black; } h1 { font-family: ‘Palatino’, sans-serif; } .shiny-input-container { color: #000000; }“))"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
+    "objectID": "Assignments/assignment04.html",
+    "href": "Assignments/assignment04.html",
+    "title": "EPPS 6356 Data Visualization",
     "section": "",
-    "text": "This is a temporary project for the in-class works."
+    "text": "Assignment 4 1. A designer is trained through repetitive practices and creating multiple works on the same object. This assignment follows that method and requests doing charts via a programming approach. Let’s do a hackathon and generate charts in the next 48 hours. Rules: a. Generate a program to create a chart using either R Graphics or ggplot2 or any R packages (no other methods/software are allowed) b. AI models are allowed but you need to provide the prompts and detail of AI model (e.g. what model and version). c. Codes and products posted on own GitHub website. d. Email TA the url of final product within 48 hours (due time at 10 pm, 10/10/2025). Timestamps determine the top three winners. Prizes will be announced in next class. e. Suggestion: must demonstrate team works instead of individual effort. Members will be randomly selected to answer questions. Pay attention to detail and embellish the chart with design. Coordinator is in charge of delegation and brief synergy report. f. Charts for this week: 1-4 in Chart thought starter:\nEPPS6356 Data Visualization"
   },
   {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "Home",
+    "objectID": "Assignments/assignment05.html",
+    "href": "Assignments/assignment05.html",
+    "title": "EPPS 6356 Data Visualization",
     "section": "",
-    "text": "This is a temporary project for the in-class works."
+    "text": "Assignment 5 1. Using sample datasets or own data, create the following charts using only R graphics functions (i.e. without using any other packages). Be sure you customize the chart with your own style/theme (e.g. font, color, pch, etc.) a. Histogram b. Barchart i. Vertical ii. Horizonal c. Piechart d. Boxplot e. Scatterplot 2. Repeat 1 using ggplot2, with your own style. 3. Export the charts using different formats such as: a. .pdf b. .jpg c. .svg d. .tiff e. .bmg Note the differences in these file format.\nEPPS6356 Data Visualization"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "Assignments/assignment01.html",
+    "href": "Assignments/assignment01.html",
+    "title": "EPPS 6356 Data Visualization",
     "section": "",
-    "text": "This is a temporary project for the in-class works."
+    "text": "Assignment 1 Ground rules: All assigned works are to be published on own GitHub website/blog. 1. Revisit Anscombe’s examples (anscombe01.R on Teams) a. Read: Anscombe, Francis J. 1973.”Graphs in statistical analysis.” The American Statistician 27, no. 1: 17-21. b. Write one paragraph to analyze and suggest solutions. 2. Run Fall.R (on Teams) a. Give your own colors (e.g. Winter). b. Export the file and post on your GitHub website. 3. Write a critique on a chart in published work (book/article/news website) (Hint: Learn from Nathan Yau’s example discussed in class). Post on your website.\nEPPS6356 Data Visualization"
   },
   {
-    "objectID": "about.html#about",
-    "href": "about.html#about",
-    "title": "About",
+    "objectID": "Assignments/assignment03.html",
+    "href": "Assignments/assignment03.html",
+    "title": "EPPS 6356 Data Visualization",
     "section": "",
-    "text": "This is a temporary project for the in-class works."
+    "text": "Assignment 3 1. Rerun murrell01.R a. Choose one of the six charts and explain how it is configured by adding documentation to the codes. 2. Rerun anscombe01.R (in Teams folder) a. Compare the regression models b. Compare different ways to create the plots (e.g. changing colors, line types, plot characters) 3. Can you finetune the charts without using other packages (consult RGraphics by Murrell)? a. Use a serif font b. Try non-default colors c. Use own plotting character 4. How about with ggplot2? (use tidyverse package) 5. Pre-hackathon by team: a. Team work: Replicate the Scatterplot matrix below (hint: Acquire data using the following codes) b. Send the codes to the TA. The first team delivering the code and chart will win a prize (by time stamp and product) ## Download COVID data from OWID GitHub owidall = read.csv(“https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true”) # Deselect cases/rows with OWID owidall = owidall[!grepl(“^OWID”, owidall$iso_code), ] # Subset by continent: Europe owideu = subset(owidall, continent==“Europe”)\nEPPS6356 Data Visualization"
+  },
+  {
+    "objectID": "Assignments/assignment02.html",
+    "href": "Assignments/assignment02.html",
+    "title": "EPPS 6356 Data Visualization",
+    "section": "",
+    "text": "Assignment 2 1. Run Paul Murrell’s RGraphics basic R programs (murrell01.R) a. Be sure to run line by line and note the changes b. Pay attention to the comments and address the question if there is one c. Plotting functions (note: exercise using the happy planet data set http://happyplanetindex.org) i. par() ii. lines() iii. points() iv. axis() v. box() vi. text() vii. mtext() viii. hist() ix. boxplot() x. legend() xi. persp() xii. names() xiii. pie() d. Post your works on your blog/website 2. Read Murrell’s R Graphics for reference\nEPPS6356 Data Visualization"
+  },
+  {
+    "objectID": "hm6.html",
+    "href": "hm6.html",
+    "title": "Assignment 6",
+    "section": "",
+    "text": "This assignment demonstrates interactive data visualization using Shiny, featuring both built-in R datasets and custom data analysis.\n\n\nTask B: Built-in Datasets\nThe application includes three classic R datasets with interactive visualizations:\n\nmtcars: Motor Trend Car Road Tests - Explore relationships between variables like MPG, horsepower, and weight with scatter plots and box plots\nUSArrests: Violent Crime Rates by US State - View top states by crime statistics (Murder, Assault, Urban Population, Rape)\nuspop: US Population by Decade (1790-1970) - Visualize historical population growth with line and bar charts\n\nTask D: CFR Cyber Attacks Data\nCustom dataset analysis featuring:\n\nGlobal cyber attack statistics from the Council on Foreign Relations\nInteractive visualizations including horizontal/vertical bar charts, lollipop charts, and distribution plots\nTop N country selector to focus on specific regions\nReal-time statistics showing total attacks, affected countries, and most targeted nation\n\n\n\n\n\n\n\n\n\nCustomization (Task A):\n\nCustom Arial font family applied throughout the application\nConsistent color scheme with theme options\nResponsive layout with sidebar controls\n\nDeployment (Task C):\n\nPublished to shinyapps.io platform\nApplication URL: https://jaketinoz.shinyapps.io/epps6356_assignment6/\nAccessible from any web browser\n\n\n\n\n\nBuilt-in Datasets: R’s datasets package (mtcars, USArrests, uspop)\nCustom Data: Council on Foreign Relations (CFR) Cyber Operations Tracker\n\nFile: CFR_country_total_with_ISO2 (1).csv\nContains cyber attack counts by country with ISO2 and ISO3 codes\n\n\n\n\n\n\nInteractivity: Dynamic controls for dataset selection, variable choice, and visualization type\nMultiple Visualizations: Scatter plots, bar charts, line charts, box plots, histograms, and lollipop charts\nData Tables: View raw data alongside visualizations\nSummary Statistics: Real-time statistical summaries for all datasets\nResponsive Design: Adapts to different screen sizes\n\n\n\n\n\nR Shiny: Interactive web application framework\nggplot2: Advanced data visualization\ndplyr: Data manipulation and transformation\nshinyapps.io: Cloud hosting platform\n\n\nAssignment completed for EPPS6356 Data Visualization"
+  },
+  {
+    "objectID": "hm6.html#shiny-application-data-visualization-platform",
+    "href": "hm6.html#shiny-application-data-visualization-platform",
+    "title": "Assignment 6",
+    "section": "",
+    "text": "This assignment demonstrates interactive data visualization using Shiny, featuring both built-in R datasets and custom data analysis.\n\n\nTask B: Built-in Datasets\nThe application includes three classic R datasets with interactive visualizations:\n\nmtcars: Motor Trend Car Road Tests - Explore relationships between variables like MPG, horsepower, and weight with scatter plots and box plots\nUSArrests: Violent Crime Rates by US State - View top states by crime statistics (Murder, Assault, Urban Population, Rape)\nuspop: US Population by Decade (1790-1970) - Visualize historical population growth with line and bar charts\n\nTask D: CFR Cyber Attacks Data\nCustom dataset analysis featuring:\n\nGlobal cyber attack statistics from the Council on Foreign Relations\nInteractive visualizations including horizontal/vertical bar charts, lollipop charts, and distribution plots\nTop N country selector to focus on specific regions\nReal-time statistics showing total attacks, affected countries, and most targeted nation\n\n\n\n\n\n\n\n\n\nCustomization (Task A):\n\nCustom Arial font family applied throughout the application\nConsistent color scheme with theme options\nResponsive layout with sidebar controls\n\nDeployment (Task C):\n\nPublished to shinyapps.io platform\nApplication URL: https://jaketinoz.shinyapps.io/epps6356_assignment6/\nAccessible from any web browser\n\n\n\n\n\nBuilt-in Datasets: R’s datasets package (mtcars, USArrests, uspop)\nCustom Data: Council on Foreign Relations (CFR) Cyber Operations Tracker\n\nFile: CFR_country_total_with_ISO2 (1).csv\nContains cyber attack counts by country with ISO2 and ISO3 codes\n\n\n\n\n\n\nInteractivity: Dynamic controls for dataset selection, variable choice, and visualization type\nMultiple Visualizations: Scatter plots, bar charts, line charts, box plots, histograms, and lollipop charts\nData Tables: View raw data alongside visualizations\nSummary Statistics: Real-time statistical summaries for all datasets\nResponsive Design: Adapts to different screen sizes\n\n\n\n\n\nR Shiny: Interactive web application framework\nggplot2: Advanced data visualization\ndplyr: Data manipulation and transformation\nshinyapps.io: Cloud hosting platform\n\n\nAssignment completed for EPPS6356 Data Visualization"
+  },
+  {
+    "objectID": "final_project.html",
+    "href": "final_project.html",
+    "title": "Final Project Report",
+    "section": "",
+    "text": "This document contains the complete final project report for EPPS 6356 Data Visualization.\n\n\n\n\n\n\n\nDownload Full Report (PDF)\n\nEPPS 6356 Data Visualization - Final Project"
+  },
+  {
+    "objectID": "final_project.html#data-visualization-final-project",
+    "href": "final_project.html#data-visualization-final-project",
+    "title": "Final Project Report",
+    "section": "",
+    "text": "This document contains the complete final project report for EPPS 6356 Data Visualization.\n\n\n\n\n\n\n\nDownload Full Report (PDF)\n\nEPPS 6356 Data Visualization - Final Project"
+  },
+  {
+    "objectID": "hm3.html",
+    "href": "hm3.html",
+    "title": "Assignment 3",
+    "section": "",
+    "text": "The scatterplot is configured by first setting graphical parameters with par() to control label orientation and margins, then creating an empty plot window with plot.new() and plot.window(), adding two trend lines with lines(), overlaying distinct point styles using points() with different pch values, customizing axis appearance with axis() and par() color parameters, drawing a U-shaped box with box(bty=“u”), and finally labeling axes with mtext() and adding identifying text with text().\nAll four models use identical specifications—same estimator (lm), same formula (y~x), no transformations—differing only in column assignments (x1-x4, y1-y4). The simple version plots with default black points and lines, while the fancy version uses red borders (col=“red”), orange fill (bg=“orange”), triangles (pch=21), larger size (cex=1.2), and blue regression lines, demonstrating how visual customization reveals different data patterns despite identical model specifications."
+  },
+  {
+    "objectID": "competition1.html",
+    "href": "competition1.html",
+    "title": "EPPS 6356 Data Visualization",
+    "section": "",
+    "text": "df_hpi_data &lt;- readxl::read_excel(\"HPI.xlsx\")\n\nNew names:\n• `` -&gt; `...2`\n• `` -&gt; `...3`\n• `` -&gt; `...4`\n• `` -&gt; `...5`\n• `` -&gt; `...6`\n• `` -&gt; `...7`\n• `` -&gt; `...8`"
   },
   {
     "objectID": "proposal.html",

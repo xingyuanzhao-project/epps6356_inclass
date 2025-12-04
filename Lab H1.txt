@@ -1,0 +1,221 @@
+Internet Mapping and Information Processing
+Instructor: Dr. Fang Qiu
+Due Date: Next Week Before Class
+
+Lab H1- Create Your Own Homepage
+
+Objectives:
+This lab will cover all the HTML tags that you have learnt in the Introduction to HTML and CSS class. You will need to create a homepage of your own using different tags and to create a static Internet map for UTD campus using image map.
+
+Task 1.  Creating Your homepage
+ 
+Download and notepad++ to author your first homepage. Your homepage should look like the one shown on page 6. All text underlined should be hyperlinked. Add appropriate title and meta information for the homepage. You can use the following scripts as your template:
+Template:
+<html>
+
+<head>
+<title>My Homepage </title>
+<meta name="keywords" content="Internet Mapping, Web GIS, Internet GIS, online mapping, GIS, Distributed GIS">
+<meta name="description" content="My Homepage">
+</head>
+
+<body>
+<p id="top"></p>
+<br>
+<p style="text-align:center;color:green;font-family:Courier New;font-size:28px;"><i><strong>SONIA MONGA</strong></i></p>
+<p style="text-align:center;"><a href = "https://www.utdallas.edu/epps/geospatial-science/">Program in Geospatial Information Sciences </a></p>
+<p style="text-align:center;"><a href = "https://www.utdallas.edu/epps/">School of Economic, Political & Policy Sciences</a></p>
+<p style="text-align:center;"><a href = "http://www.utdallas.edu">University of Texas at Dallas</a><hr>
+
+
+<TABLE style="text-align:center;width:100%;border:0;">
+  <TBODY>
+  <TR >
+    <TD style="width:206;">
+       <p> <a href ="#me"> <b>About Me</b> </a></p></TD>
+    <TD style="width:200;">
+      <P><a href="#Education"><b>Education</b></a></P></td>
+    <TD style="width:202;">
+      <P><a href="#Course Work"><b>Course Work</b></a></p></td>
+    <td style="width:277;">
+      <p><a href="#contact"><b>Contact Information</b></a></p></td>
+	</TBODY>
+</TABLE>
+<HR>
+
+ <a id="me"><b>About Me</b> </a> 
+   <P>I am from India and currently am in the <a href="https://www.utdallas.edu/epps/geospatial-science/"> Master's Program in Geospatial 
+     Information Sciences </a>in the <a href ="https://www.utdallas.edu/epps/">School of Economic, Political & Policy Sciences</a> at
+     <a href = "http://www.utdallas.edu">University of Texas at Dallas</a>.I am also a Teaching Assistant under
+      <a href = "http://www.utdallas.edu/~ffqiu">Dr.Fang Qiu </a> and <a href = "http://www.utdallas.edu/~briggs">Dr.Briggs
+     </a>I have done a certificate course in Remote Sensing from 
+     <a href = "http://www.cssteap.org/General/publications/Memoirs/RsGis5/Page5-Rsgis5.htm">IIRS</a>, Dehradun, India.
+     <p style="text-align:right;"> <a href = "#top"> Go to top </a> </p>
+     <hr>
+     
+ <a id="Education"><b>Education</b> </a> <a href "http://www.utdallas.edu/~som010100/home.html#Education"></a>
+  <ul>
+	<li>Master's in <a href ="https://www.utdallas.edu/epps/geospatial-science/">Geospatial Informations Sciences </a>, 
+	<a href ="http://www.utd.edu">University of Texas at Dallas </a></li>
+	<li> Bachelor's in School of Sciences, India</li> 
+  </ul>
+  <p style="text-align:right;"> <a href = "#top">Go to top</a></p>
+  <hr>
+
+  </body>
+</html>
+
+
+Requirements:
+	•	“Your Name” should appear in the center of the page by using text with bold and italic styles, green colors, and size 28 Courier New font. Then add four headers as follows. 
+	•	“About Me” should give a brief description about you in a single paragraph. Information could include your current status as a student or as a full time GIS professional, your area of interest, and/or your concentration of study.
+	•	“Education” lists your education experiences as an unordered list. Link the schools you have attended to their homepage.
+	•	“Course Work” lists the courses that you have already taken or are currently taking using an ordered list. Add links to the class homepage/syllabi online if they are available.  
+	•	“Contact Information” should be at the bottom of your homepage. You can include your address, phone, fax, email address, and homepage URL. Make sure add link to your e-mail address using a mailto: URL (So when someone clicks this type of anchored link, most browsers launch the default e-mail program to enable the user to write an e-mail message to the linked address)
+	•	In the beginning of the homepage, under your name, add four internal links pointing to “About me”, “Education”, “Course Work”, “Contact Information”
+	•	Also make internal link on the right side of your document (Go to Top) so that it enables one to jump back to the top of your homepage at any locations in your homepage.
+	•	Horizontal lines should be used to separate each section as shown in the sample homepage. You can also add your picture on the homepage if you want. 
+
+Assignment H1(a). Improve your homepage using tables:
+
+You will need to modify your home page that you created in task1 by using tables. It should look like the one shown on page 7. 
+
+	•	First, notice that your internal links, such as “About Me”, “Education”, “Course Work”, “Contact Information” are arranged inside a table. 
+	•	Go to https://alumni.utdallas.edu/wallpapers and download a UTD wallpaper. Also download the UTD logo from https://www.utdallas.edu/brand/ut-dallas-logos/. 
+	•	Create a table for the text shown in dotted lines. Reorganize your Name part as shown in the example. Add an image of yourself or UTD wallpapers that you downloaded on the left side of your name. The image will have row span of 2. Set the border size to 2, add the UTD logo under the UTD image but at the same row as your “University of Texas at Dallas” text link. Make sure to link the UTD logo to UTD Homepage.
+	•	Save you file as Lab H1(a).htm file
+
+Task 2. Creating Image Map
+
+Use image maps that designate certain areas of an image (called hotspots) as links to create a static Internet map. You can use the following example as a template. You should download the images and html/htm files from the eLearning folder to test your code. 
+
+<HTML>
+<HEAD>
+<TITLE>
+Static Map Server
+</TITLE>
+</HEAD>
+<BODY style="background-color:#AAAAAA;">
+<H2 style="text-align:center;">IMAGE FOR LEARNING HOT LINKS</H2>
+<HR> </HR>
+<IMG SRC="lab_image.jpg" USEMAP="#imagemap">
+<Map name="imagemap">
+    <Area SHAPE=RECT COORDS="114,76,425,168" HREF="LAB_RECTANGLE1.HTML">
+	<Area SHAPE=RECT COORDS="499,198,812,269" HREF="LAB_RECTANGLE2.HTML">
+	<Area SHAPE=POLY COORDS="259,216,377,367,140,364" HREF="LAB_POLY.HTML">
+</MAP>
+<HR> </HR>
+</BODY>
+</HTML>
+
+
+Assignment H1b. Creating a clickable UTD Campus Map
+
+	•	Download Image from UTD Campus image from https://csrc.utdallas.edu/Images/campusmap.png 
+Or you can use the attached image (“campus_map.png”), used during the tutorial.
+
+
+	•	Identify the coordinates of buildings in “campusmap.png” using ArcGIS Pro:
+	•	From StartProgramsArcGISArcGIS Pro 
+	•	In the ArcGIS Pro software interface, open a new empty map.
+	•	Remove all existing layers.
+	•	Add “campusmap.png” to the map. (Answer “yes” if prompted to create pyramids.)
+	•	Right click on “campusmap.png” and select “Zoom to Layer”
+	•	Change units to Meters
+
+
+	•	Move your mouse around to the upper left and lower right corners of the buildings of interest and take note of the coordinate locations.
+
+
+
+	•	Obtain the coordinate in pixel units (even if the units were changed to meters, the units will be in pixels since the image does not have a coordinate system assigned). For the following building by moving the cursor around the building and writing the coordinates  down on a paper.
+One the bottom center of the map interface you can find the coordinates in the manner of column/row number (X Y). For the input as your HTML coords value, we only take the number parts and ignore the signs and decimal place. For example, 581.314, -688.55 Unknown Units  581, 688.
+	•	Link each building to its corresponding website as shown below. 
+
+	•	Administration (AD)  UTD Website
+	•	Cecil H. Green Hall (GR)  School of EPPS Website
+	•	Eugene McDermott Library (MC)  UTD Library Website
+
+	•	Include the following HTML code and use your coordinates to create a static UTD Internet Campus Map.
+
+<HTML>
+<HEAD>
+<TITLE>
+Static Map Server
+</TITLE>
+</HEAD>
+<BODY style="background-color:#AAAAAA;">
+<H2 style="text-align:center;">IMAGE FOR LEARNING HOT LINKS</H2>
+<HR> </HR>
+
+<IMG SRC = “https://csrc.utdallas.edu/Images/campusmap.png” USEMAP= “#UTD”>
+<Map Name = UTD>
+		<Area SHAPE=POLY COORDS = “--- ---- ---- ---“
+		HREF= “---”>
+		<Area SHAPE=POLY COORDS = “--- ---- ---- ---“
+		HREF= “---”>
+		<Area SHAPE=POLY COORDS = “--- ---- ---- ---“
+		HREF= “---”>
+</MAP>
+<HR> </HR>
+</BODY>
+</HTML>
+
+	•	Save your HTML file as Lab H1(b).html 
+
+
+Turn In: Submit Lab H1(a).html, Lab H1(b).html and the images you use to drop box. 
+
+
+
+
+
+
+
+
+
+
+Your homepage from task1 should look like this:
+SONIA MONGA
+
+Program in Geospatial Information Sciences 
+School of Economic, Political & Policy Sciences 
+University of Texas at Dallas
+
+
+About me           Education          Course Work              Contact Information
+
+About me:
+I am from India. Currently I am working on my Master’s in GIS at the University of Texas at Dallas. I am also a teaching assistant under Dr. Fang Qiu and Dr. Ronald Briggs. I like to play tennis and to swim, …
+Go to Top
+
+Education:
+	•	Master, Geographic Information Sciences, University of Texas at Dallas, Expect 2003
+	•	Bachelor, …
+	•	High School,  …
+Go to Top
+
+Course Work:
+	•	Introduction to GIS
+	•	Applied GIS software
+	•	Spatial Analysis
+	•	Visual Basic for GIS
+	•	Internet Mapping and Information Processing 
+Go to Top
+
+Contact Information:
+2200 Waterview parkway # 2034,
+Richardson, Texas 75080
+E-mail: soniamonga@hotmail.com
+http://www.utdallas.edu/~sonia.monga
+Go to Top
+
+
+
+
+
+
+
+
+The first part of your improved homepage should look like this:
+

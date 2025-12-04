@@ -1,0 +1,2 @@
+  Assignment 2  1. Run Paul Murrell’s RGraphics basic R programs (murrell01.R) a. Be sure to run line by line and note the changes b. Pay attention to the comments and address the question if there is one c. Plotting functions (note: exercise using the happy planet data set http://happyplanetindex.org) i. par() ii. lines() iii. points() iv. axis() v. box() vi. text() vii. mtext() viii. hist() ix. boxplot() x. legend() xi. persp() xii. names() xiii. pie() d. Post your works on your blog/website 2. Read Murrell’s R Graphics for reference  
+EPPS6356 Data Visualization 

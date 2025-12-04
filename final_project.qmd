@@ -1,0 +1,21 @@
+---
+title: "Final Project Report"
+format: html
+---
+
+## Data Visualization Final Project
+
+This document contains the complete final project report for EPPS 6356 Data Visualization.
+
+### Project Report
+
+<iframe src="Data Visualization_Final Project.pdf" width="100%" height="800px" style="border: 1px solid #ccc;"></iframe>
+
+### Download
+
+[Download Full Report (PDF)](Data Visualization_Final Project.pdf)
+
+---
+
+*EPPS 6356 Data Visualization - Final Project*
+

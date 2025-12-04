@@ -21,14 +21,16 @@ website:
             text: Homework 3
           - href: hm4.qmd
             text: Homework 4
-      - text: Hackathon
-        menu:
-          - href: comp2.qmd
-            text: Competition 2
+          - href: hm5.qmd
+            text: Homework 5
+          - href: hm6.qmd
+            text: Homework 6
       - text: Final Project
         menu:
           - href: proposal.qmd
             text: Proposal
+          - href: final_project.qmd
+            text: Final Report
 
 format:
   html:

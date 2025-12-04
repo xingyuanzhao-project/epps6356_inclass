@@ -34,7 +34,7 @@ df_hpi <- df_hpi[!is.na(df_hpi$HPI), ]
 - `width = Population/max(Population)`: Normalized width prevents extreme size differences
 - `reorder(Country, HPI)`: Orders countries by HPI for easier comparison
 
-![](a4p1.png)
+![](plots/a4p1.png)
 
 ## Plot 2: Table
 
@@ -75,7 +75,7 @@ $$
 - `grid.table()`: Displays formatted regression results in tabular form
 
 <div style="margin: 10px 0; padding: 0;">
-<img src="a4p2.png" style="width: 100%; min-width: 1000px; height: auto; display: block;">
+<img src="plots/a4p2.png" style="width: 100%; min-width: 1000px; height: auto; display: block;">
 </div>
 
 ## Plot 3: Bar Chart
@@ -100,7 +100,7 @@ $$
 - Different colors (`coral` vs `lightblue`): Distinguishes the two categories
 - Two separate barplots: Shows contrast between high and low performers
 
-![](a4p3.png)
+![](plots/a4p3.png)
 
 ## Plot 4: Column Chart
 
@@ -125,4 +125,4 @@ $$
 - `fill` aesthetic: Distinguishes between HPI and Life Expectancy bars
 - `reorder(Country, HPI)`: Orders countries by HPI ranking
 
-![](a4p4.png)
+![](plots/a4p4.png)

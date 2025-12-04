@@ -4,4 +4,18 @@ title: "Home"
 
 ## Welcome
 
-This is a temporary project for the in-class works.
+This is the portfolio website for EPPS 6356 Data Visualization coursework.
+
+### Assignments
+
+- [Homework 1](hm1.html) - Anscombe's Quartet & Chart Critique
+- [Homework 2](hm2.html) - Data Visualization Practice
+- [Homework 3](hm3.html) - Advanced R Graphics
+- [Homework 4](hm4.html) - HPI Data Visualization
+- [Homework 5](hm5.html) - Base R vs ggplot2 & File Formats
+- [Homework 6](hm6.html) - Interactive Shiny Applications
+
+### Final Project
+
+- [Project Proposal](proposal.html) - Research Proposal
+- [Final Report](final_project.html) - Complete Analysis & Visualization

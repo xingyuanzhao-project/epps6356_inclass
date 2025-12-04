@@ -1,0 +1,2 @@
+  Assignment 5  1. Using sample datasets or own data, create the following charts using only R graphics functions (i.e. without using any other packages).  Be sure you customize the chart with your own style/theme (e.g. font, color, pch, etc.) a. Histogram b. Barchart i. Vertical  ii. Horizonal c. Piechart d. Boxplot e. Scatterplot 2. Repeat 1 using ggplot2, with your own style. 3. Export the charts using different formats such as: a. .pdf b. .jpg c. .svg d. .tiff e. .bmg  Note the differences in these file format.  
+EPPS6356 Data Visualization 
